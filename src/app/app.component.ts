@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-declare var deepstream: any;
 
 @Component({
   selector: 'app-root',
@@ -8,8 +7,4 @@ declare var deepstream: any;
 })
 export class AppComponent {
   title = 'app';
-  constructor() {
-    console.log(deepstream)
-  }
-
 }
