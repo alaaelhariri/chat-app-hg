@@ -5,7 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ChatAppComponent } from './chat-app/chat-app.component';
 
-
+import { DeepStreamService } from './services/deep-stream.service'
 
 @NgModule({
   declarations: [
@@ -17,7 +17,9 @@ import { ChatAppComponent } from './chat-app/chat-app.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    DeepStreamService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
