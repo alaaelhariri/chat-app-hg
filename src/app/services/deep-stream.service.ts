@@ -15,5 +15,17 @@ export class DeepStreamService {
     //allows you to "log in" to the server created by deepstream
     this.deepS.login(credentials, loginHandler)
   }
+
+  getRecord(name) {
+    //to add a user
+    return this.deepS.record.getRecord(name);
+  }
+
+  getList(name){
+    //to add a chat
+    return this.deepS.record.getList(name);
+  }
+
+
 }
 
