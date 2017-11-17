@@ -8,9 +8,8 @@
 
   <div id="message_form">
     <form [formGroup]="sendChatForm" (ngSubmit)="addChat(sendChatForm.value.username, sendChatForm.value.message)">
-      <input formControlName="username" type="text" />
       <input formControlName="message" type="text" />
-      <button > Submit</button>
+      <button>Send</button>
     </form>
   </div>
 
