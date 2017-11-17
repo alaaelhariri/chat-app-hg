@@ -1,3 +1,18 @@
-<p>
-  chat-app works!
-</p>
+<div>
+  <div id="display_chat">
+    <div *ngFor="let chat of chat_array">
+      <p> <b> {{chat.username}} </b> </p> <br>
+      <p>{{chat.message}} </p>
+    </div>
+  </div>
+
+  <div id="message_form">
+    <form [formGroup]="sendChatForm" (ngSubmit)="addChat(sendChatForm.value.username, sendChatForm.value.message)">
+      <input formControlName="username" type="text" />
+      <input formControlName="message" type="text" />
+      <button > Submit</button>
+    </form>
+  </div>
+
+
+</div>
