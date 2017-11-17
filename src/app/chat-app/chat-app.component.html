@@ -1,13 +1,13 @@
 <div>
   <div id="display_chat">
-    <div *ngFor="let chat of chat_array">
+    <div *ngFor="let chat of chats_array">
       <p> <b> {{chat.username}} </b> </p>
       <p>{{chat.message}} </p>
     </div>
   </div>
 
   <div id="message_form">
-    <form [formGroup]="sendChatForm" (ngSubmit)="addChat(sendChatForm.value.username, sendChatForm.value.message)">
+    <form [formGroup]="sendChatForm" (ngSubmit)="addChat(sendChatForm.value.message)">
       <input formControlName="message" type="text" />
       <button>Send</button>
     </form>
