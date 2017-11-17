@@ -1,15 +1,22 @@
-<div>
-  <div id="display_chat">
-    <div *ngFor="let chat of chats_array">
-      <p> <b> {{chat.username}} </b> </p>
-      <p>{{chat.message}} </p>
+<div class="jumbotron jumbotron-fluid" style="background-color: transparent">
+
+  <div id="page_title" class="container">
+      <h2> Hi {{username}}! Start chatting!</h2>
+  </div>
+
+  <div id="display_chat" class="container">
+    <div *ngFor="let chat of chats_array" >
+      <p> <b> {{chat.username}}: </b> {{chat.message}} </p>
     </div>
   </div>
 
-  <div id="message_form">
+  <div id="message_form" class="container">
     <form [formGroup]="sendChatForm" (ngSubmit)="addChat(sendChatForm.value.message)">
-      <input formControlName="message" type="text" />
-      <button>Send</button>
+      <div class="form-group">
+        <input formControlName="message" type="text" class="form-control"/>
+      </div>
+
+      <button class="btn btn-primary">Send</button>
     </form>
   </div>
 
