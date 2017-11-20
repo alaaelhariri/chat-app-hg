@@ -4,21 +4,29 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ChatAppComponent } from './chat-app/chat-app.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
-import { DeepStreamService } from './services/deep-stream.service'
+import { routing } from './app.router';
+
+import { DeepStreamService } from './services/deep-stream.service';
+import {ChatServiceService} from './services/chat-service.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatAppComponent
+    ChatAppComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    routing
   ],
   providers: [
-    DeepStreamService
+    DeepStreamService,
+    ChatServiceService
   ],
   bootstrap: [AppComponent]
 })

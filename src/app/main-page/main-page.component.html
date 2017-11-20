@@ -1,0 +1,6 @@
+<form [formGroup]="usernameForm" (ngSubmit)="goToChat(this.usernameForm.value.username)">
+  Please enter a username:
+  <input type="text" formControlName="username" value="anonymous"/>
+  <input type="submit" class="btn btn-primary">
+
+</form>
