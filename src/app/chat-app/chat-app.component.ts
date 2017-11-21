@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {FormGroup, FormBuilder} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import {ChatServiceService} from '../services/chat-service.service';
+import chats from '../chats'
 
 @Component({
   selector: 'ca-hg-chat-app',
@@ -9,6 +10,8 @@ import {ChatServiceService} from '../services/chat-service.service';
   styleUrls: ['./chat-app.component.css']
 })
 export class ChatAppComponent implements OnInit {
+
+  @Output() chatEvent = new EventEmitter<any>();
 
   username = 'a_chatter';
 
@@ -21,20 +24,20 @@ export class ChatAppComponent implements OnInit {
   ngOnInit() {
     // initialize message form
     this.sendChatForm = this._fb.group({ message: [] });
-    this.username = this._route.snapshot.params.username;
-    this.chats_array = this._cs.getChats();
 
+    //get username
+    this.username = this._route.snapshot.params.username;
+
+    //get chats
+    this._cs.currentChat.subscribe(chats => this.chats_array = chats)
 
   }
 
 
   addChat(msg) {
-
-   this.chats_array = this._cs.addChat({ username: this.username, message: msg })
-
-
+    // add new chat
+    this._cs.addChat({username: this.username, message: msg })
   }
-
 
 
 }
