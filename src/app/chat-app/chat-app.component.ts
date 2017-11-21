@@ -15,7 +15,9 @@ export class ChatAppComponent implements OnInit {
 
   username = 'a_chatter';
 
-  chats_array = [];
+  chats_array = JSON.parse(localStorage.getItem("chats"));
+
+  test_chats=localStorage.getItem("chats");
 
   sendChatForm: FormGroup;
 
@@ -28,15 +30,15 @@ export class ChatAppComponent implements OnInit {
     //get username
     this.username = this._route.snapshot.params.username;
 
-    //get chats
-    this._cs.currentChat.subscribe(chats => this.chats_array = chats)
 
   }
 
 
   addChat(msg) {
     // add new chat
-    this._cs.addChat({username: this.username, message: msg })
+    this._cs.addChat({username: this.username, message: msg });
+    console.log(JSON.parse(localStorage.getItem("chats")))
+    this.chats_array = JSON.parse(localStorage.getItem("chats"));
   }
 
 

@@ -17,6 +17,7 @@ import {ChatServiceService} from './services/chat-service.service';
     AppComponent,
     ChatAppComponent,
     MainPageComponent
+
   ],
   imports: [
     BrowserModule,

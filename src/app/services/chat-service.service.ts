@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
 import  chats  from '../chats'
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class ChatServiceService {
 
   constructor() { }
 
-  private chatSource = new BehaviorSubject<Object[]>([]);
-  currentChat = this.chatSource.asObservable();
 
   chats = [];
 
@@ -16,9 +13,18 @@ export class ChatServiceService {
     return chats;
   }
 
-  addChat(chat: Object) {
-    this.chatSource.getValue().push(chat);
-    this.chatSource.next( this.chatSource.getValue() )
+  addChat(chat) {
+
+    //check chat  username and message
+    //push chat
+    console.log(chat.username  + ' ' + chat.message);
+    chats.push(chat);
+
+
+    //check if added to chats
+    //reset localStorage to chats
+    console.log("new chat added " + chats.length);
+    localStorage.setItem("chats", JSON.stringify(chats))
   }
 
 }
