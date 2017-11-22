@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import  chats  from '../chats'
 
 @Injectable()
@@ -6,25 +6,18 @@ export class ChatServiceService {
 
   constructor() { }
 
-
-  chats = [];
-
-  getChats() {
-    return chats;
-  }
-
   addChat(chat) {
 
-    //check chat  username and message
-    //push chat
-    console.log(chat.username  + ' ' + chat.message);
-    chats.push(chat);
+    //create localStorage item chats in case it wasn't there
+    if(!localStorage.getItem("chats")) localStorage.setItem("chats", JSON.stringify([]))
 
-
-    //check if added to chats
-    //reset localStorage to chats
-    console.log("new chat added " + chats.length);
-    localStorage.setItem("chats", JSON.stringify(chats))
+   // setting local storage to old local storage concatenated with the new chat
+    localStorage.setItem("chats", JSON.stringify(
+      JSON.parse(
+          localStorage.getItem("chats")
+        ).concat([chat])
+      )
+    )
   }
 
 }

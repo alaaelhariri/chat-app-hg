@@ -1,6 +1,8 @@
+<h3> Welcome to TheChat! Enter a username to start chatting!</h3>
+
 <form [formGroup]="usernameForm" (ngSubmit)="goToChat(this.usernameForm.value.username)">
   Please enter a username:
-  <input type="text" formControlName="username" value="anonymous"/>
+  <input type="text" formControlName="username" />
   <input type="submit" class="btn btn-primary">
 
 </form>

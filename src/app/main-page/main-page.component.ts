@@ -9,12 +9,14 @@ import { Router } from '@angular/router';
 })
 export class MainPageComponent implements OnInit {
 
+  //point of the page is to get a username
+
   usernameForm: FormGroup;
 
   constructor(private _fb: FormBuilder, private _router: Router) { }
 
   ngOnInit() {
-    this.usernameForm = this._fb.group({ username:'' })
+    this.usernameForm = this._fb.group({ username:'anonymous' })
   }
 
   goToChat(username) {

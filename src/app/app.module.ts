@@ -8,7 +8,6 @@ import { MainPageComponent } from './main-page/main-page.component';
 
 import { routing } from './app.router';
 
-import { DeepStreamService } from './services/deep-stream.service';
 import {ChatServiceService} from './services/chat-service.service';
 
 
@@ -26,7 +25,6 @@ import {ChatServiceService} from './services/chat-service.service';
     routing
   ],
   providers: [
-    DeepStreamService,
     ChatServiceService
   ],
   bootstrap: [AppComponent]
